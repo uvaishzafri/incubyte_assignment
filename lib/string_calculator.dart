@@ -136,7 +136,7 @@ class StringCalculator {
     // Check for custom delimiter
     if (numbers.startsWith('//')) {
       final parts = numbers.split('\n');
-      delimiter = parts[0].substring(2); // Remove "//"
+      delimiter = parts[0].substring(2);
       numberString = parts[1];
     }
 
@@ -146,9 +146,15 @@ class StringCalculator {
         .replaceAll(delimiter, ',');
 
     final numberParts = normalized.split(',');
+    final parsedNumbers = numberParts.map((e) => int.parse(e.trim())).toList();
 
-    return numberParts
-        .map((e) => int.parse(e.trim()))
-        .reduce((a, b) => a + b);
+    // Check for negative numbers
+    final negatives = parsedNumbers.where((n) => n < 0).toList();
+    if (negatives.isNotEmpty) {
+      throw Exception(
+          'negative numbers not allowed: ${negatives.join(', ')}');
+    }
+
+    return parsedNumbers.reduce((a, b) => a + b);
   }
 }

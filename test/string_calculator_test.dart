@@ -46,5 +46,25 @@ void main() {
       expect(calculator.add('//|\n1|2|3'), 6);
       expect(calculator.add('//sep\n2sep3'), 5);
     });
+
+    test('should throw exception for negative numbers', () {
+      expect(
+            () => calculator.add('1,-2,3'),
+        throwsA(predicate((e) =>
+        e is Exception &&
+            e.toString().contains('negative numbers not allowed: -2'))),
+      );
+    });
+
+    test('should show all negative numbers in exception message', () {
+      expect(
+            () => calculator.add('1,-2,-3,4,-5'),
+        throwsA(predicate((e) =>
+        e is Exception &&
+            e.toString().contains('-2') &&
+            e.toString().contains('-3') &&
+            e.toString().contains('-5'))),
+      );
+    });
   });
 }
