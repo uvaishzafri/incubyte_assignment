@@ -129,6 +129,12 @@ class StringCalculator {
     if (numbers.isEmpty) {
       return 0;
     }
+
+    if (numbers.contains(',')) {
+      final parts = numbers.split(',');
+      return parts.map((e) => int.parse(e)).reduce((a, b) => a + b);
+    }
+
     return int.parse(numbers);
   }
 }

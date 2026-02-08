@@ -24,5 +24,10 @@ void main() {
       expect(calculator.add('1'), 1);
       expect(calculator.add('5'), 5);
     });
+
+    test('should return sum of two comma-separated numbers', () {
+      expect(calculator.add('1,2'), 3);
+      expect(calculator.add('1,5'), 6);
+    });
   });
 }
