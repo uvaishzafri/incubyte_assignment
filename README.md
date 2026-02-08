@@ -1,16 +1,45 @@
-# string_calculator_tdd
+# String Calculator TDD Kata - Flutter Implementation
 
-A new Flutter project.
+This is my solution to the Incubyte TDD Assessment, implemented in Flutter following Test-Driven Development principles.
 
-## Getting Started
+## 🎯 About
 
-This project is a starting point for a Flutter application.
+A String Calculator that can:
+- Handle comma-separated numbers
+- Support newlines as delimiters
+- Accept custom delimiters
+- Validate against negative numbers
+- Return the sum of all numbers
 
-A few resources to get you started if this is your first Flutter project:
+## 🚀 Running the Project
+```bash
+# Get dependencies
+flutter pub get
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+# Run tests
+flutter test
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+# Run tests with coverage
+flutter test --coverage
+```
+
+## 🧪 Test Coverage
+
+All requirements are covered with unit tests:
+- Empty string handling
+- Single and multiple numbers
+- Newline support
+- Custom delimiters
+- Negative number validation
+
+## 📂 Project Structure
+```
+lib/
+  └── string_calculator.dart
+test/
+  └── string_calculator_test.dart
+```
+
+## 👨‍💻 Author
+
+Uvaish Zafri
