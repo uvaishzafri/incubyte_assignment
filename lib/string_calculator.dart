@@ -130,11 +130,7 @@ class StringCalculator {
       return 0;
     }
 
-    if (numbers.contains(',')) {
-      final parts = numbers.split(',');
-      return parts.map((e) => int.parse(e)).reduce((a, b) => a + b);
-    }
-
-    return int.parse(numbers);
+    final parts = numbers.split(',');
+    return parts.map((e) => int.parse(e.trim())).reduce((a, b) => a + b);
   }
 }

@@ -29,5 +29,11 @@ void main() {
       expect(calculator.add('1,2'), 3);
       expect(calculator.add('1,5'), 6);
     });
+
+    test('should handle any amount of numbers', () {
+      expect(calculator.add('1,2,3'), 6);
+      expect(calculator.add('1,2,3,4,5'), 15);
+      expect(calculator.add('10,20,30,40'), 100);
+    });
   });
 }
