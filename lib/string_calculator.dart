@@ -130,7 +130,10 @@ class StringCalculator {
       return 0;
     }
 
-    final parts = numbers.split(',');
+    // Replace newlines with commas
+    final normalized = numbers.replaceAll('\n', ',');
+    final parts = normalized.split(',');
+
     return parts.map((e) => int.parse(e.trim())).reduce((a, b) => a + b);
   }
 }

@@ -35,5 +35,10 @@ void main() {
       expect(calculator.add('1,2,3,4,5'), 15);
       expect(calculator.add('10,20,30,40'), 100);
     });
+
+    test('should handle newlines between numbers', () {
+      expect(calculator.add('1\n2,3'), 6);
+      expect(calculator.add('1\n2\n3'), 6);
+    });
   });
 }
