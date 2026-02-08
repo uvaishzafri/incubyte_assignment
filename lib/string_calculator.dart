@@ -130,10 +130,25 @@ class StringCalculator {
       return 0;
     }
 
-    // Replace newlines with commas
-    final normalized = numbers.replaceAll('\n', ',');
-    final parts = normalized.split(',');
+    String delimiter = ',';
+    String numberString = numbers;
 
-    return parts.map((e) => int.parse(e.trim())).reduce((a, b) => a + b);
+    // Check for custom delimiter
+    if (numbers.startsWith('//')) {
+      final parts = numbers.split('\n');
+      delimiter = parts[0].substring(2); // Remove "//"
+      numberString = parts[1];
+    }
+
+    // Replace newlines and custom delimiter with commas
+    final normalized = numberString
+        .replaceAll('\n', ',')
+        .replaceAll(delimiter, ',');
+
+    final numberParts = normalized.split(',');
+
+    return numberParts
+        .map((e) => int.parse(e.trim()))
+        .reduce((a, b) => a + b);
   }
 }
