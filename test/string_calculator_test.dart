@@ -10,14 +10,7 @@ void main() {
     });
 
     test('should return 0 for empty string', () {
-      // Arrange
-      const input = '';
-
-      // Act
-      final result = calculator.add(input);
-
-      // Assert
-      expect(result, 0);
+      expect(calculator.add(''), 0);
     });
 
     test('should return the number itself for single number', () {
